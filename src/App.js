@@ -8,6 +8,7 @@ import {
   ResponsiveContext
 } from 'grommet';
 import { Notification } from 'grommet-icons';
+import { Incident } from './Incident';
 
 const theme = {
   global: {
@@ -59,7 +60,7 @@ class App extends Component {
               </AppBar>
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align="center" justify="center">
-                  Content
+                  <Incident></Incident>
                 </Box>
                 {size !== 'small' && (
                   <Collapsible direction="horizontal" open={showSidebar}>

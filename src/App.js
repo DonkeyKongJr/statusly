@@ -28,33 +28,29 @@ const theme = {
 
 function App() {
   return (
-    <Grommet theme={theme}>
-      <header className="App-header">
-        <p>Welcome to statusly.</p>
-        <a
-          className="GitHub"
-          href="https://github.com/DonkeyKongJr/statusly"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Show on GitHub
-        </a>
-        <Box
-          tag="header"
-          direction="row"
-          align="center"
-          justify="between"
-          pad={{ vertical: 'small', horizontal: 'medium' }}
-          elevation="medium"
-        />
-      </header>
-      <AppBar>
-        Statusly
-        <Heading level="3" margin="none">
-          Statusly
-        </Heading>
-        <Button icon={<Notification />} onClick={() => {}} />
-      </AppBar>
+    <Grommet theme={theme} full>
+      <Box fill>
+        <AppBar>
+          <Heading level="3" margin="none">
+            Statusly
+          </Heading>
+          <Button icon={<Notification />} onClick={() => {}} />
+        </AppBar>
+        <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+          <Box flex align="center" justify="center">
+            content
+          </Box>
+          <Box
+            width="medium"
+            background="light-2"
+            elevation="small"
+            align="center"
+            justify="center"
+          >
+            sidebar
+          </Box>
+        </Box>
+      </Box>
     </Grommet>
   );
 }

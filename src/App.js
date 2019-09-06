@@ -1,6 +1,23 @@
-import React from 'react';
-import { Box, Button, Heading, Grommet } from 'grommet';
+import React, { Component } from 'react';
+import {
+  Box,
+  Button,
+  Collapsible,
+  Heading,
+  Grommet,
+  ResponsiveContext
+} from 'grommet';
 import { Notification } from 'grommet-icons';
+
+const theme = {
+  global: {
+    font: {
+      family: 'Roboto',
+      size: '14px',
+      height: '20px'
+    }
+  }
+};
 
 const AppBar = props => (
   <Box
@@ -16,43 +33,55 @@ const AppBar = props => (
   />
 );
 
-const theme = {
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '14px',
-      height: '20px'
-    }
+class App extends Component {
+  state = {
+    showSidebar: false
+  };
+  render() {
+    const { showSidebar } = this.state;
+    return (
+      <Grommet theme={theme} full>
+        <ResponsiveContext.Consumer>
+          {size => (
+            <Box fill>
+              <AppBar>
+                <Heading level="3" margin="none">
+                  Statusly
+                </Heading>
+                <Button
+                  icon={<Notification />}
+                  onClick={() =>
+                    this.setState(prevState => ({
+                      showSidebar: !prevState.showSidebar
+                    }))
+                  }
+                />
+              </AppBar>
+              <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+                <Box flex align="center" justify="center">
+                  Content
+                </Box>
+                {size !== 'small' && (
+                  <Collapsible direction="horizontal" open={showSidebar}>
+                    <Box
+                      flex
+                      width="medium"
+                      background="light-2"
+                      elevation="small"
+                      align="center"
+                      justify="center"
+                    >
+                      sidebar
+                    </Box>
+                  </Collapsible>
+                )}
+              </Box>
+            </Box>
+          )}
+        </ResponsiveContext.Consumer>
+      </Grommet>
+    );
   }
-};
-
-function App() {
-  return (
-    <Grommet theme={theme} full>
-      <Box fill>
-        <AppBar>
-          <Heading level="3" margin="none">
-            Statusly
-          </Heading>
-          <Button icon={<Notification />} onClick={() => {}} />
-        </AppBar>
-        <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-          <Box flex align="center" justify="center">
-            content
-          </Box>
-          <Box
-            width="medium"
-            background="light-2"
-            elevation="small"
-            align="center"
-            justify="center"
-          >
-            sidebar
-          </Box>
-        </Box>
-      </Box>
-    </Grommet>
-  );
 }
 
 export default App;

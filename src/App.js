@@ -61,6 +61,7 @@ class App extends Component {
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align="center" justify="center">
                   <Incident></Incident>
+                  <Incident></Incident>
                 </Box>
                 {size !== 'small' && (
                   <Collapsible direction="horizontal" open={showSidebar}>

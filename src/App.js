@@ -60,8 +60,14 @@ class App extends Component {
               </AppBar>
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
                 <Box flex align="center" justify="center">
-                  <Incident></Incident>
-                  <Incident></Incident>
+                  <Incident
+                    title="Incident 1"
+                    content="Our service responded with an internal server error."
+                  ></Incident>
+                  <Incident
+                    title="Incident 2"
+                    content="Our service responded with an Bad Gateway error."
+                  ></Incident>
                 </Box>
                 {size !== 'small' && (
                   <Collapsible direction="horizontal" open={showSidebar}>

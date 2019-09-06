@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Card } from 'grommet-controls';
-import './Incident.css';
+import './incident.css';
 
 export class Incident extends Component {
   render() {
     return (
       <Card className="card" margin="small" pad="small">
-        <Card.CardTitle>Incident</Card.CardTitle>
-        <Card.CardContent>This incident is about</Card.CardContent>
+        <Card.CardTitle>{this.props.title}</Card.CardTitle>
+        <Card.CardContent>{this.props.content}</Card.CardContent>
       </Card>
     );
   }

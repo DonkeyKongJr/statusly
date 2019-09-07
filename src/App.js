@@ -9,6 +9,7 @@ import {
 } from 'grommet';
 import { Notification } from 'grommet-icons';
 import { Incident } from './Incident';
+import './app.css';
 
 const theme = {
   global: {
@@ -40,6 +41,19 @@ class App extends Component {
   };
   render() {
     const { showSidebar } = this.state;
+    this.state.incidents = [];
+
+    for (let i = 1; i <= 10; i++) {
+      this.state.incidents.push({
+        title: 'Incident ' + i,
+        content: 'Our server responded with an internal error'
+      });
+    }
+
+    const incidents = this.state.incidents.map((item, key) => (
+      <Incident title={item.title} content={item.content}></Incident>
+    ));
+
     return (
       <Grommet theme={theme} full>
         <ResponsiveContext.Consumer>
@@ -59,15 +73,8 @@ class App extends Component {
                 />
               </AppBar>
               <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
-                <Box flex align="center" justify="center">
-                  <Incident
-                    title="Incident 1"
-                    content="Our service responded with an internal server error."
-                  ></Incident>
-                  <Incident
-                    title="Incident 2"
-                    content="Our service responded with an Bad Gateway error."
-                  ></Incident>
+                <Box className="content" flex align="center" justify="center">
+                  {incidents}
                 </Box>
                 {size !== 'small' && (
                   <Collapsible direction="horizontal" open={showSidebar}>

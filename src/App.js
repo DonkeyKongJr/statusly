@@ -37,11 +37,11 @@ const AppBar = props => (
 
 class App extends Component {
   state = {
-    showSidebar: false
+    showSidebar: false,
+    incidents: []
   };
   render() {
     const { showSidebar } = this.state;
-    this.state.incidents = [];
 
     for (let i = 1; i <= 10; i++) {
       this.state.incidents.push({

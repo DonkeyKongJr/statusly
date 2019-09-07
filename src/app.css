@@ -1,4 +1,7 @@
 .content {
   overflow: auto;
+}
+
+.block {
   display: block;
 }

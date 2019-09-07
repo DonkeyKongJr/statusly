@@ -72,7 +72,12 @@ class App extends Component {
                   }
                 />
               </AppBar>
-              <Box direction="row" flex overflow={{ horizontal: 'hidden' }}>
+              <Box
+                className="block"
+                direction="row"
+                flex
+                overflow={{ horizontal: 'hidden' }}
+              >
                 <Box className="content" flex align="center" justify="center">
                   {incidents}
                 </Box>

@@ -48,7 +48,8 @@ class App extends Component {
         incidents.push({
             title: 'Incident ' + i,
             content: 'Our server responded with an internal error',
-            id: i
+            id: i,
+            timestamp: new Date().setHours(new Date().getHours() - i + 1)
         });
         }
 
@@ -59,7 +60,7 @@ class App extends Component {
         const { showSidebar } = this.state;
 
         const incidents = this.state.incidents.map((item, key) => (
-        <Incident title={item.title} content={item.content} key={item.id}></Incident>
+        <Incident title={item.title} content={item.content} key={item.id} timestamp={item.timestamp}></Incident>
         ));
 
         return (
@@ -99,7 +100,6 @@ class App extends Component {
                         align="center"
                         justify="center"
                         >
-                        sidebar
                         </Box>
                     </Collapsible>
                     )}

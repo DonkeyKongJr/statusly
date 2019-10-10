@@ -47,7 +47,8 @@ class App extends Component {
         for (let i = 1; i <= 10; i++) {
         incidents.push({
             title: 'Incident ' + i,
-            content: 'Our server responded with an internal error'
+            content: 'Our server responded with an internal error',
+            id: i
         });
         }
 
@@ -58,7 +59,7 @@ class App extends Component {
         const { showSidebar } = this.state;
 
         const incidents = this.state.incidents.map((item, key) => (
-        <Incident title={item.title} content={item.content}></Incident>
+        <Incident title={item.title} content={item.content} key={item.id}></Incident>
         ));
 
         return (

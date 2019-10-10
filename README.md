@@ -1,3 +1,7 @@
+This projects provides an easy solution for displayin status messages of your product or service.
+
+![](https://github.com/DonkeyKongJr/statusly/blob/master/doc/statusly-page.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
